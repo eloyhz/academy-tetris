@@ -26,28 +26,48 @@
     <body>
         <!-- HTML Code -->
         <div id='world'>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
+            
             <div class="squareShape"></div>
-            <div class="squareShape"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <br>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
-            <div class="squareShape"></div>
-            <div class="squareShape"></div>
-            <div class="empty"></div>
-            <div class="empty"></div>
         </div>
 
         <!-- JavaScript Code: -->
         <script>
+            let world = [
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,1,1,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0],
+            ];
 
+            function drawWorld() {
+                document.getElementById("world").innerHTML = ''; 
+
+                for(let y = 0; y < world.length; y++) {
+                    // console.log(world[y]);
+                    for (let x = 0; x < world[y].length; x++) {
+                        // console.log(world[y][x]);
+                        if (world[y][x] === 0) {
+                            document.getElementById("world").innerHTML += 
+                                '<div class="empty"></div>'; 
+                        }
+                        else if (world[y][x] === 1) {
+                            document.getElementById("world").innerHTML += 
+                                '<div class="squareShape"></div>'; 
+                        }
+                    }
+                    document.getElementById("world").innerHTML +=  '<br>';
+                }
+            }
+
+            drawWorld();
         </script>
     </body>
 </html>
